@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+       .extraouter {
+        transition: all .5s;
+        width: 50px;
+        position: absolute;
+      }
+      .outer {
+        transition: all 1s;
+        width: 50px;
+        position: absolute;
+      }
+      .mid {
+        transition: all 2.5s;
+        width: 50px;
+        position: absolute;
+      }
+      
+      .inner {
+        transition: all 5s;
+        width: 50px;
+        position: absolute;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      const imageURL =
+        "anthurium_loop.gif";
+      const body = document.body;
+      const center = {
+        x: window.innerWidth / 2,
+        y: window.innerHeight / 2,
+      };
+      const radius = 200;
+      let angle = 0;
+
+      for (let i = 0; i < 30; i++) {
+        const img = document.createElement("img");
+        img.classList.add('outer');
+        img.src = imageURL;
+        img.style.left = `${center.x + radius * Math.cos(angle)}px`;
+        img.style.top = `${center.y + radius * Math.sin(angle)}px`;
+        img.style.transform = `rotate(${angle}rad)`;
+        body.appendChild(img);
+        angle += (2 * Math.PI) / 30;
+      }
+      
+            setInterval(() => {
+        const imgs = document.getElementsByClassName("extraouter");
+        for (let i = 0; i < imgs.length; i++) {
+          const x = parseFloat(imgs[i].style.left);
+          const y = parseFloat(imgs[i].style.top);
+          const dx = x - center.x;
+          const dy = y - center.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          const angle = Math.atan2(dy, dx);
+          const newAngle = angle + (Math.PI / 180) * 2;
+          const newX = center.x + dist * Math.cos(newAngle);
+          const newY = center.y + dist * Math.sin(newAngle);
+          const rotation = Math.atan2(newY - y, newX - x);
+          imgs[i].style.left = `${newX}px`;
+          imgs[i].style.top = `${newY}px`;
+          imgs[i].style.transform = `rotate(${rotation}rad)`;
+        }
+      }, 100);
+      
+      
+      for (let i = 0; i < 30; i++) {
+        const img = document.createElement("img");
+        img.classList.add('mid');
+        img.src = imageURL;
+        img.style.left = `${center.x + radius * Math.cos(angle)}px`;
+        img.style.top = `${center.y + radius * Math.sin(angle)}px`;
+        img.style.transform = `rotate(${angle}rad)`;
+        body.appendChild(img);
+        angle += (2 * Math.PI) / 30;
+      }
+
+      setInterval(() => {
+        const imgs = document.getElementsByClassName("outer");
+        for (let i = 0; i < imgs.length; i++) {
+          const x = parseFloat(imgs[i].style.left);
+          const y = parseFloat(imgs[i].style.top);
+          const dx = x - center.x;
+          const dy = y - center.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          const angle = Math.atan2(dy, dx);
+          const newAngle = angle + (Math.PI / 180) * 2;
+          const newX = center.x + dist * Math.cos(newAngle);
+          const newY = center.y + dist * Math.sin(newAngle);
+          const rotation = Math.atan2(newY - y, newX - x);
+          imgs[i].style.left = `${newX}px`;
+          imgs[i].style.top = `${newY}px`;
+          imgs[i].style.transform = `rotate(${rotation}rad)`;
+        }
+      }, 100);
+      
+      
+      for (let i = 0; i < 30; i++) {
+        const img = document.createElement("img");
+        img.classList.add('mid');
+        img.src = imageURL;
+        img.style.left = `${center.x + radius * Math.cos(angle)}px`;
+        img.style.top = `${center.y + radius * Math.sin(angle)}px`;
+        img.style.transform = `rotate(${angle}rad)`;
+        body.appendChild(img);
+        angle += (2 * Math.PI) / 30;
+      }
+      
+      
+      setInterval(() => {
+        const imgs = document.getElementsByClassName("mid");
+        for (let i = 0; i < imgs.length; i++) {
+          const x = parseFloat(imgs[i].style.left);
+          const y = parseFloat(imgs[i].style.top);
+          const dx = x - center.x;
+          const dy = y - center.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          const angle = Math.atan2(dy, dx);
+          const newAngle = angle + (Math.PI / 180) * 2;
+          const newX = center.x + dist * Math.cos(newAngle);
+          const newY = center.y + dist * Math.sin(newAngle);
+          const rotation = Math.atan2(newY - y, newX - x);
+          imgs[i].style.left = `${newX}px`;
+          imgs[i].style.top = `${newY}px`;
+          imgs[i].style.transform = `rotate(${rotation}rad)`;
+        }
+      }, 100);
+      
+            for (let i = 0; i < 30; i++) {
+        const img = document.createElement("img");
+        img.classList.add('inner');
+        img.src = imageURL;
+        img.style.left = `${center.x + radius * Math.cos(angle)}px`;
+        img.style.top = `${center.y + radius * Math.sin(angle)}px`;
+        img.style.transform = `rotate(${angle}rad)`;
+        body.appendChild(img);
+        angle += (2 * Math.PI) / 30;
+      }
+      
+      
+      setInterval(() => {
+        const imgs = document.getElementsByClassName("inner");
+        for (let i = 0; i < imgs.length; i++) {
+          const x = parseFloat(imgs[i].style.left);
+          const y = parseFloat(imgs[i].style.top);
+          const dx = x - center.x;
+          const dy = y - center.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          const angle = Math.atan2(dy, dx);
+          const newAngle = angle + (Math.PI / 180) * 2;
+          const newX = center.x + dist * Math.cos(newAngle);
+          const newY = center.y + dist * Math.sin(newAngle);
+          const rotation = Math.atan2(newY - y, newX - x);
+          imgs[i].style.left = `${newX}px`;
+          imgs[i].style.top = `${newY}px`;
+          imgs[i].style.transform = `rotate(${rotation}rad)`;
+        }
+      }, 100);
+    </script>
+  </body>
+</html>
